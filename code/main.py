@@ -3,15 +3,15 @@ import numpy as np
 
 
 class Aufgabe:
+
     n = 8
     array = np.zeros((n, n))
 
-    # Index = 8 · y + x
 
     def neighbour(self, pos, direction):
         """
-        Methode zur Berechnung der nachbarn in einer bestimmten Richtung
-        :param pos: Index im Array
+        Methode zur Berechnung des Nachbarindexes in einer bestimmten Richtung
+        :param pos: Index im Array = self.n · y + x
         :param direction: 0,1,2,3
         0 => oben
         1 => links
@@ -54,7 +54,7 @@ class Aufgabe:
 
 if __name__ == '__main__':
     a = Aufgabe()
-    for i in range(0,4):
+    for i in range(0, 4):
 
         out = a.neighbour(63, i)
         print(out)
