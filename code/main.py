@@ -3,10 +3,8 @@ import numpy as np
 
 
 class Aufgabe:
-
     n = 8
     array = np.zeros((n, n))
-
 
     def neighbour(self, pos, direction):
         """
@@ -51,10 +49,29 @@ class Aufgabe:
 
         return index
 
+    def trace_back(self, d):
+        akt = d
+        anzahl = 1
+        while self.array[akt] != 1:
+            min = 255
+            min_pos = akt
+            for i in range(0, 4):
+                position = self.neighbour(akt, i)
+                if self.array[position] < min and self.array[position] != -1:
+                    min = self.array[position]
+                    min_pos = position
+
+            akt = min_pos
+            self.array[akt] = 254
+            anzahl += 1
 
 if __name__ == '__main__':
     a = Aufgabe()
-    for i in range(0, 4):
+    for pos in range(64):
+        out = a.neighbour(pos, 0)
+        out1 = a.neighbour(pos, 1)
+        out2 = a.neighbour(pos, 2)
+        out3 = a.neighbour(pos, 3)
+        print(pos, out, out1, out2, out3)
+    print (a.neighbour(43, 0))
 
-        out = a.neighbour(63, i)
-        print(out)
