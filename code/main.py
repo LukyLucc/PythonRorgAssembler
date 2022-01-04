@@ -19,35 +19,33 @@ class Aufgabe:
         :return: index
         """
 
-        index = -1
         y = pos // self.n
         x = pos % self.n
 
         if direction == 0:  # oben
             if y == 0:
-                index = -1
+                return -1
             else:
-                index = pos - self.n
+                return pos - self.n
 
         if direction == 1:  # links
             if x == 0:
-                index = -1
+                return -1
             else:
-                index = pos - 1
+                return pos - 1
 
         if direction == 2:  # unten
             if y == self.n - 1:
-                index = -1
+                return -1
             else:
-                index = pos + self.n
+                return pos + self.n
 
         if direction == 3:  # rechts
             if x == self.n - 1:
-                index = -1
+                return -1
             else:
-                index = pos + 1
+                return pos + 1
 
-        return index
 
     def trace_back(self, d):
         akt = d
